@@ -1,118 +1,90 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
+//import liraries
 import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
   View,
+  Text,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+// create a component
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+    <View style={styles.container}>
+      <View style={styles.secand}>
+        <Text style={styles.text}>Sign Up</Text>
+        <TextInput
+          style={styles.inputbox}
+          placeholder="Name"
+          autoCorrect={false}
+          autoCapitalize="words"
+          keyboardType="default"
+          multiline={false}
+        />
+        <TextInput
+          style={styles.inputbox}
+          placeholder="Email"
+          autoCorrect={false}
+          autoCapitalize="words"
+          keyboardType="default"
+          multiline={false}
+        />
+        <TextInput
+          style={styles.inputbox}
+          placeholder="Password"
+          autoCorrect={false}
+          autoCapitalize="words"
+          keyboardType="default"
+          multiline={false}
+        />
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.cen}>sign up</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
-}
+};
 
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
-
+// define your styles
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#2c3e50',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
+  text: {
+    fontSize: 30,
+    marginBottom: 10,
     fontWeight: '400',
   },
-  highlight: {
-    fontWeight: '700',
+  secand: {
+    height: '50%',
+    width: '85%',
+  },
+  inputbox: {
+    color: 'red',
+    borderBottomWidth: 1,
+    borderColor: 'black',
+    marginBottom: 5,
+    marginTop: 20,
+    padding: 5,
+  },
+  button: {
+    backgroundColor: 'black',
+    borderRadius: 7,
+    padding: 12,
+    marginTop: 20,
+    textAlign: 'center',
+  },
+  cen: {
+    textAlign: 'center',
+    color: 'yellow',
+    fontSize: 15,
+    fontWeight: '600',
   },
 });
 
+//make this component available to the app
 export default App;
